@@ -1,0 +1,7 @@
+addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix" % "0.9.31")
+addSbtPlugin("com.github.sbt"            % "sbt-jni"      % "1.5.3")
+addSbtPlugin("com.github.gseitz"         % "sbt-release"  % "1.0.13")
+addSbtPlugin("com.typesafe.sbt"          % "sbt-git"      % "1.0.1")
+addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.20")
+addSbtPlugin("org.scalameta"             % "sbt-scalafmt" % "2.4.3")
+addSbtPlugin("pl.project13.scala"        % "sbt-jmh"      % "0.4.2")

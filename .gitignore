@@ -1,0 +1,17 @@
+.DS_Store
+
+# sbt specific
+target/
+.bsp
+dist/
+
+# local files
+.local
+
+# Natives
+/amr/native/cmake-build-debug
+
+.bloop
+.metals
+.vscode
+metals.sbt

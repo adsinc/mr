@@ -9,7 +9,7 @@ sealed trait Vad extends Command
 object Vad {
   case object Filter extends Vad
 
-  case object Chunk extends Vad
+  case object Chunks extends Vad
 }
 
 case object Empty extends Command

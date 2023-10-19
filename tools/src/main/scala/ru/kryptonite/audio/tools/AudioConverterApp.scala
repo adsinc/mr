@@ -1,7 +1,7 @@
 package ru.kryptonite.audio.tools
 
-import ru.kryptonite.audio.tools.processing.commands._
 import org.slf4j.LoggerFactory
+import ru.kryptonite.audio.tools.processing.commands._
 import ru.kryptonite.commons.util.CloseableOps
 import scopt.OptionParser
 
@@ -21,6 +21,9 @@ class AudioConverterApp(args: AudioConverterApp.Args) extends CloseableOps {
         case Convert =>
           val converter = Conversion(args.in, args.channel)
           converter.convertAndSave(args.out)
+        case Vad.Chunks =>
+          val vadChunks = VadChunking(args.in, args.out, args.mode, args.frameDurationMs)
+          vadChunks.chunks()
         case _ =>
       }
     } catch {
@@ -67,6 +70,8 @@ object AudioConverterApp extends App {
       .children(
         cmd("filter")
           .action((_, args) => args.copy(cmd = Vad.Filter)),
+        cmd("chunks")
+          .action((_, args) => args.copy(cmd = Vad.Chunks)),
         opt[Int]('m', name = "mode")
           .validate(x =>
             if (AcceptableModes.contains(x))
